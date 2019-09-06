@@ -26,26 +26,46 @@ const printToDOM = (toPrint, divId) => {
     document.getElementById(divId).innerHTML = toPrint
 };
 
-const studentSorter = (studArray) => {
-    let domString = '<div class="row">'
-    for (let i = 0; i < studArray.length; i++) {
-        const currentStudent = studArray[i]
-        domString += `
-            <div class="col-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${currentStudent.name}</h5>
-                        <p class="card-text">${currentStudent.house}</p>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-danger">Expel</button>
-            </div>`
-    };
-    domString += '</div>'
-    printToDOM(domString, 'studentCard')
+const getForm = () => {
+    let domString = `
+        <form id="nameForm">
+        <div class="row">
+            <div class="col">
+            <input type="text" class="form-control" placeholder="Full Name">
+            </div>
+        <button type="submit" class="btn btn-dark">Sort Me!</button>
+    </form>`
+    printToDOM(domString, 'getSortedForm')
   };
 
-  cardBuilder(students)
+const buttonClick = (e) =>{
+        const buttonType = e.target.id;
+        if (buttonType === 'beginButton')
+        getForm()
+    };
+
+document.getElementById('beginButton').addEventListener('click', buttonClick);
+
+// const studentSorter = (studArray) => {
+//     let domString = '<div class="row">'
+//     for (let i = 0; i < studArray.length; i++) {
+//         const currentStudent = studArray[i]
+//         domString += `
+//             <div class="col-3">
+//                 <div class="card">
+//                     <div class="card-body">
+//                         <h5 class="card-title">${currentStudent.name}</h5>
+//                         <p class="card-text">${currentStudent.house}</p>
+//                     </div>
+//                 </div>
+//                 <button type="button" class="btn btn-danger">Expel</button>
+//             </div>`
+//     };
+//     domString += '</div>'
+//     printToDOM(domString, 'studentCard')
+//   };
+
+//   cardBuilder(students)
 
 // const buttonClick = (e) =>{
 //     const studentName = e.target.id;
