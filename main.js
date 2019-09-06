@@ -21,7 +21,10 @@ const students = [
         name: 'Isis',
         house: 'Ravenclaw'
     }
-]
+];
+
+const schoolHouse = ['Gryffindoor', 'Slytherin', 'Hufflepuff', 'Ravenclaw']
+
 const printToDOM = (toPrint, divId) => {
     document.getElementById(divId).innerHTML = toPrint
 };
@@ -45,6 +48,15 @@ const buttonClick = (e) =>{
     };
 
 document.getElementById('beginButton').addEventListener('click', buttonClick);
+
+const houseGenerator () => {
+    Math.floor(Math.random() * 5);
+    for (let i = 0; i < schoolHouse.length; i++) {
+        const wholeNumber = Math.floor();
+        const giveHouse = schoolHouse[i];
+        
+    };
+};
 
 // const studentSorter = (studArray) => {
 //     let domString = '<div class="row">'
