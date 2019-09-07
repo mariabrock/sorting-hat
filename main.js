@@ -54,9 +54,26 @@ const houseGenerator () => {
     for (let i = 0; i < schoolHouse.length; i++) {
         const wholeNumber = Math.floor();
         const giveHouse = schoolHouse[i];
-        
+        return (wholeNumber, giveHouse)
     };
 };
+
+
+const houseAssignment () => {
+    if (wholeNumber === 0){
+        return 'Gryffindoor';
+    };
+    if (wholeNumber === 1) {
+        return 'Slytherin';
+    };
+    if (wholeNumber === 2) { 
+        return 'Ravenclaw';
+    };
+    if (wholeNumber === 3) {
+        return 'Hufflepuff';
+    };
+};
+
 
 // const studentSorter = (studArray) => {
 //     let domString = '<div class="row">'
