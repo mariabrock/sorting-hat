@@ -1,5 +1,6 @@
 body {
     background-color: darkslateblue;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 /* .selector-for-some-widget {
@@ -19,7 +20,10 @@ body {
 }
 
 #studentCard {
-    text-align: center;
+    box-sizing: content-box;
     margin: auto;
     padding: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 16px;
 }
