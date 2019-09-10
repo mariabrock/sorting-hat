@@ -6,11 +6,12 @@ const printToDOM = (toPrint, divId) => {
     document.getElementById(divId).innerHTML += toPrint
 };
 
-let hideCard = () => {
-    const toExpel = document.getElementById('studentCard');
+let hideCard = (e) => {
+    const toExpel = e.target.closest('.col-3');
     if (toExpel.style.display = "block") {
         toExpel.style.display = "none";
     }
+    console.log(e.target.closest('.col-3'))
 };
 
 const getForm = () => {
@@ -26,10 +27,9 @@ const getForm = () => {
   };
 
 const buttonClick = (e) =>{
-        const buttonType = e.target.id;
-        if (buttonType === 'expel') {
-            hideCard();
-        } else if (buttonType === 'beginButton') {
+        if (e.target.classList.contains('expel')) {
+            hideCard(e);
+        } else if (e.target.id === 'beginButton') {
                 getForm()};
     }; 
 
@@ -45,7 +45,7 @@ const houseGenerator = (studentName) => {
                                     <h5 class="card-title">${studentName}</h5>
                                     <p class="card-text">${house}</p>
                                     </div>
-                                    <button type="button" class="btn btn-danger" id="expel">Expel</button>
+                                    <button type="button" class="btn btn-danger expel">Expel</button>
                                 </div>
                             </div>`
     printToDOM(domString, 'studentCard');
@@ -71,3 +71,11 @@ document.getElementById('getSortedForm').addEventListener('click', function (e) 
 
 
 document.getElementById('studentCard').addEventListener('click', buttonClick);
+
+
+//the init function:
+// const init = () => {
+//     eventlisteners (the 5 lines of buttonClicks)
+//     pieBuilder(pies);
+// }
+// Init ();
