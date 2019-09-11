@@ -5,9 +5,13 @@ const schoolHouse = ['Gryffindoor', 'Slytherin', 'Hufflepuff', 'Ravenclaw']
 const printToDOM = (toPrint, divId) => {
     document.getElementById(divId).innerHTML += toPrint
 };
-const hideCard = () => {
-    const expel = document.getElementById('studentCard');
-    expel.style.display = "none";
+
+let hideCard = (e) => {
+    const toExpel = e.target.closest('.col-3');
+    if (toExpel.style.display = "block") {
+        toExpel.style.display = "none";
+    }
+    console.log(e.target.closest('.col-3'))
 };
 
 const getForm = () => {
@@ -23,10 +27,9 @@ const getForm = () => {
   };
 
 const buttonClick = (e) =>{
-        const buttonType = e.target.id;
-        if (buttonType === 'expel') {
-            hideCard()
-        } else if (buttonType === 'beginButton') {
+        if (e.target.classList.contains('expel')) {
+            hideCard(e);
+        } else if (e.target.id === 'beginButton') {
                 getForm()};
     }; 
 
@@ -36,15 +39,15 @@ const houseGenerator = (studentName) => {
     const randomNumber = Math.floor(Math.random() * 4);
         console.log(randomNumber)
         const house = schoolHouse[randomNumber]
-        let domString = ` <div class="col-3">
-                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">${studentName}</h5>
-                                <p class="card-text">${house}</p>
+        let domString = `<div class="col-3">
+                                <div class="card">
+                                <div class="card-body" id="studCard">
+                                    <h5 class="card-title">${studentName}</h5>
+                                    <p class="card-text">${house}</p>
+                                    </div>
+                                    <button type="button" class="btn btn-danger expel">Expel</button>
                                 </div>
-                                <button type="button" class="btn btn-danger" id="expel">Expel</button>
-                            </div>
-                        </div>`
+                            </div>`
     printToDOM(domString, 'studentCard');
 };
 
@@ -57,5 +60,22 @@ document.getElementById('getSortedForm').addEventListener('click', function (e) 
     };
 });
 
-// (element.validity.valueMissing) 
+// (element.validity.valueMissing)
+// let validateForm = () => {
+//     const needName = document.forms["studentCard"]["nameInput"].value;
+//     if (needName !== "nameInput") {
+//         alert("Name must be filled out");
+//         return false;
+//     }
+//     validateForm ()
+
+
 document.getElementById('studentCard').addEventListener('click', buttonClick);
+
+
+//the init function:
+// const init = () => {
+//     eventlisteners (the 5 lines of buttonClicks)
+//     pieBuilder(pies);
+// }
+// Init ();
